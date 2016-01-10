@@ -123,6 +123,7 @@ void kernel_fdtd_apml(int cz,
   int iz, iy, ix;
 
 #pragma scop
+#pragma omp parallel for private(ix,iy,iz)
   for (iz = 0; iz < _PB_CZ; iz++)
     {
       for (iy = 0; iy < _PB_CYM; iy++)
@@ -253,4 +254,3 @@ int main(int argc, char** argv)
 
   return 0;
 }
-
