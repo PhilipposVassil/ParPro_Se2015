@@ -1,0 +1,112 @@
+
+afou exeis kanei cd Desktop/polybench-c-3.2
+
+ASKISI 1!!
+
+gia ka8e export 8a trexeis tin entoli apo mia fora
+
+trexeis :
+export OMP_NUM_THREADS=1
+
+export OMP_NUM_THREADS=2
+
+export OMP_NUM_THREADS=4
+
+export OMP_NUM_THREADS=6
+
+export OMP_NUM_THREADS=8
+
+gcc -I utilities -I stencils/fdtd-2d utilities/polybench.c stencils/fdtd-2d/fdtd-2d_serial.c  -DLARGE_DATASET -DPOLYBENCH_TIME -fopenmp -o fdtd-2d_time_serial
+
+
+./fdtd-2d_time_serial
+
+to programa 8a vgalei meta mia tiimi
+TIN TIMI kane tin ena printscreen kai tin 8eloume! vgaze pics!!
+
+kai meta apo auto
+
+trexeis :
+export OMP_NUM_THREADS=1
+
+export OMP_NUM_THREADS=2
+
+export OMP_NUM_THREADS=4
+
+export OMP_NUM_THREADS=6
+
+export OMP_NUM_THREADS=8
+
+gcc -I utilities -I stencils/fdtd-2d utilities/polybench.c stencils/fdtd-2d/fdtd-2d_parallel.c  -DLARGE_DATASET -DPOLYBENCH_TIME -fopenmp -o fdtd-2d_time_parallel
+
+
+./fdtd-2d_time_parallel
+
+to programa 8a vgalei meta mia tiimi
+TIN TIMI kane tin ena printscreen kai tin 8eloume! vgaze pics!!
+
+ASKISI 2!!!
+
+
+trexeis :
+export OMP_NUM_THREADS=1
+
+export OMP_NUM_THREADS=2
+
+export OMP_NUM_THREADS=4
+
+export OMP_NUM_THREADS=6
+
+export OMP_NUM_THREADS=8
+
+gcc -I utilities -I stencils/fdtd-apml utilities/polybench.c stencils/fdtd-apml/fdtd-apml_serial.c -DLARGE_DATASET -DPOLYBENCH_TIME -fopenmp -o fdtd-apml_time_serial
+
+
+./fdtd-apml_time_serial
+
+
+to programa 8a vgalei meta mia tiimi
+TIN TIMI kane tin ena printscreen kai tin 8eloume! vgaze pics!!
+
+kai meta apo auto
+
+trexeis :
+export OMP_NUM_THREADS=1
+
+export OMP_NUM_THREADS=2
+
+export OMP_NUM_THREADS=4
+
+export OMP_NUM_THREADS=6
+
+export OMP_NUM_THREADS=8
+
+gcc -I utilities -I stencils/fdtd-apml utilities/polybench.c stencils/fdtd-apml/fdtd-apml_parallel.c -DLARGE_DATASET -DPOLYBENCH_TIME -fopenmp -o fdtd-apml_time_parallel
+
+
+./fdtd-apml_time_parallel
+
+to programa 8a vgalei meta mia tiimi
+TIN TIMI kane tin ena printscreen kai tin 8eloume! vgaze pics!!
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+asxeta :P
+
+
+
+gcc -I utilities -I stencils/fdtd-2d utilities/polybench.c stencils/fdtd-2d/fdtd-2d.c  -DLARGE_DATASET -DPOLYBENCH_TIME -DPOLYBENCH_DUMP_ARRAYS -fopenmp -o fdtd-2d_time
+
+./fdtd-2d_time 2>fdtd-2d_time.out
+
+
+
+gcc -I utilities -I stencils/fdtd-apml utilities/polybench.c stencils/fdtd-apml/fdtd-apml.c -DPOLYBENCH_TIME -DLARGE_DATASET -DPOLYBENCH_DUMP_ARRAYS -fopenmp -o fdtd-apml_time
+
+gcc -I utilities -I stencils/fdtd-apml utilities/polybench.c stencils/fdtd-apml/fdtd-apml.c -DPOLYBENCH_DUMP_ARRAYS -fopenmp -o fdtd-apml_time
+
+
+
+./fdtd-apml_time 2>fdtd-apml_time.out
+
+diff fdtd-apml_time.out fdtd-apml_time1.out
